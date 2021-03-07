@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <title>Greeting</title> 
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Oswald:300,400);
+
+    body {
+  background-color: rgb(67, 115, 179);
+  margin:0 auto;
+    padding: 0;
+    
+}
+
+*{
+    box-sizing: border-box;
+}
+
+
+#hr{
+  font-size: 5em;
+  text-align: center;
+  font-family: 'Oswald';
+  
+  color: #f8f7f6;
+  margin: 40px auto;
+  border-bottom: 15px solid rgb(240, 243, 240);
+width:100px;
+  }
+ 
+#currentTime {
+  font-size: 8em;
+  text-align: center;
+  font-family: 'Oswald';
+  font-weight: 0px;
+  color: #f8f7f6;
+  margin: 40px auto;
+  width:800px;
+}
+
+#greeting{
+  font-size: 5em;
+  text-align: center;
+  font-family: 'Oswald';
+  font-weight: 50px;
+  color: #f8f7f6;
+  margin: 40px auto;
+  width: 500px;
+}
+
+#day{
+ 
+  font-size: 2.5em;
+  text-align: center;
+  font-family: 'Oswald';
+  font-weight: 0px;
+  color: #f8f7f6;
+  margin: 40px auto;
+  width:500px;
+}
+
+
+
+    </style>
+</head>
+<body>
+    
+
+
+<script>
+   window.onload = function() {
+  clock();  
+    function clock() {
+    var now = new Date();
+    var TwentyFourHour = now.getHours();
+    var hour = now.getHours();
+    var min = now.getMinutes();
+    var sec = now.getSeconds();
+    var mid = 'PM';
+    var greet;
+
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    var curWeekDay = days[now.getDay()];
+    var curDay = now.getDate();
+    var curMonth = months[now.getMonth()];
+    var curYear = now.getFullYear();
+    var day = curDay+" "+curMonth+" "+curYear;
+    
+
+    if (hour <10) {
+      hour = "0" + hour;
+    }
+
+    if (min <10) {
+      min= "0" + min;
+    }
+
+    if (sec <10) {
+      sec = "0" + sec;
+    }
+    if (curDay <10) {
+      day = "0" + day;
+    }
+    
+/*
+    if (hour < 10) {
+      greet = 'Good Morning';
+    }
+    if (hour > 12) {
+      hour = hour - 12;
+      greet = 'Good Evening';
+    }    
+    
+    if(hour==0){ 
+      hour=12;
+      greet = 'Good night';
+    }
+    
+    else{
+        greet = 'Good Night';
+    }*/
+
+
+    if (hour >= 4 && hour<12 ) {
+      greet = 'Good Morning';
+    }
+    else if (hour > 12 && hour<4) {
+      greet = 'Good Afternoon';
+    }
+
+    else if (hour > 4 && hour<8) {
+      greet = 'Good Evening';
+    }
+    else if (hour > 8 && hour<4){
+        greet = 'Good Night';
+    }
+
+    if(TwentyFourHour < 12) {
+       mid = 'AM';
+    }     
+    document.getElementById('greeting').innerHTML = greet;
+  document.getElementById('currentTime').innerHTML = hour+':'+min+':'+sec +' '+mid;
+  document.getElementById('day').innerHTML = day;
+    setTimeout(clock, 1000);
+    }
+}
+
+
+</script> 
+<main>
+<div id="greeting"></div>
+<div id="hr">  </div>
+<div id="currentTime"></div>
+<div id="day"></div>
+</main>
+</body>
+</html>
