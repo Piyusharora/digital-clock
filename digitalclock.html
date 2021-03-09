@@ -103,24 +103,36 @@ width:100px;
       day = "0" + day;
     }
     
-
+/*
+    if (hour < 10) {
+      greet = 'Good Morning';
+    }
+    if (hour > 12) {
+      hour = hour - 12;
+      greet = 'Good Evening';
+    }    
+    
+    if(hour==0){ 
+      hour=12;
+      greet = 'Good night';
+    }
+    
+    else{
+        greet = 'Good Night';
+    }*/
 
     if (hour > 12) {
       hour = hour - 12;
       
     }   
 
-    if (hour >= 4 && hour<12) {
+    if (hour >= 4 && hour<=12) {
       greet = 'Good Morning';
     }
-    else if (hour > 12 && hour<4) {
-      greet = 'Good Afternoon';
-    }
-
-    else if (hour >= 4 && hour<8 && mid==='PM') {
+    else if (hour >= 1 && hour<7 && mid==='PM') {
       greet = 'Good Evening';
     }
-    else if (hour >= 12 && hour<4 && mid==='PM'){
+    else if (hour >=7 && hour<4 && mid==='PM'){
         greet = 'Good Night';
     }
 
