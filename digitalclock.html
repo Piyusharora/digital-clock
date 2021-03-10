@@ -126,14 +126,15 @@ width:100px;
       
     }   
 
-    if (hour >= 4 && hour<=12) {
+    if (hour >= 4 && hour<=12&& mid==='AM') {
       greet = 'Good Morning';
     }
-    if (hour >= 1 && hour<7 && mid==='PM') {
+    else if (hour >= 1 && hour<7 && mid==='PM') {
       greet = 'Good Evening';
     }
-    else if (hour >=7 && hour<4 && mid==='PM'){
-        greet = 'Good Night';
+    // (hour >=7 && hour<4 && mid==='PM'){
+else{      
+	  greet = 'Good Night';
     }
 
     if(TwentyFourHour < 12) {
